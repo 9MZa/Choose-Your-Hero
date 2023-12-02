@@ -12,6 +12,7 @@ struct Choose_Your_HeroApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .preferredColorScheme(.dark)
         }
     }
 }

@@ -43,26 +43,33 @@ struct ContentView: View {
 struct RowView: View {
     let hero: Hero
     var body: some View {
-        LazyHStack(alignment: .center, spacing: 10, content: {
-            AsyncImage(url: URL(string: hero.smallThumbnail)) { phase in
-                switch phase {
-                case .empty:
-                    ProgressView().progressViewStyle(.circular)
-                        .foregroundStyle(.ultraThinMaterial)
-                case .success(let image):
-                    image.resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .clipShape(Circle())
-                        .frame(width: 50, height: 50)
-                case .failure(let error):
-                    Text(error.localizedDescription)
-                @unknown default:
-                    EmptyView()
+        HStack(content: {
+            LazyHStack(alignment: .center, spacing: 10, content: {
+                AsyncImage(url: URL(string: hero.smallThumbnail)) { phase in
+                    switch phase {
+                    case .empty:
+                        ProgressView().progressViewStyle(.circular)
+                            .foregroundStyle(.ultraThinMaterial)
+                    case .success(let image):
+                        image.resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .clipShape(Circle())
+                            .frame(width: 50, height: 50)
+                    case .failure(let error):
+                        Text(error.localizedDescription)
+                    @unknown default:
+                        EmptyView()
+                    }
                 }
-            }
-            .frame(width: 50, height: 50)
-            Text(hero.name)
-                .foregroundStyle(.white)
+                .frame(width: 50, height: 50)
+                
+                Text(hero.name)
+                    .foregroundStyle(.white)
+            })
+            Spacer()
+            Image(systemName: "chevron.right")
+                .foregroundStyle(.white.opacity(0.4))
+                .padding(.trailing, 5)
         })
         .frame(
             minWidth: 0,

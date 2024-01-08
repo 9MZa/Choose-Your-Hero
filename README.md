@@ -1,5 +1,7 @@
 # Choose Your Hero
 
+## Description
+
 Simple app to show DOTA2 heroes to fetch from API.
 
 ## Screenshots

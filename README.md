@@ -15,11 +15,11 @@ Simple app to show DOTA2 heroes to fetch from API.
 - Show list of heroes
 - Show detail of heroes
 - Search heroes
+- MVVM Pattern
 
 ## Technology
 
 - SwiftUI
-- MVVM Pattern
 - Networking with URLSession
 
 [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
